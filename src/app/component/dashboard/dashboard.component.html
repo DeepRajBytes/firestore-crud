@@ -1,0 +1,82 @@
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">Task Reports</a>
+      <form class="d-flex" role="search">
+        <button type="button" class="btn btn-primary" (click)="logout()">Sign Out</button>
+      </form>
+    </div>
+  </nav>
+<!-- main functionality  -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mt-3">
+            <div class="card border-0 shadow p-3">
+                <div class="">
+                    <div class="tetx-center">
+                        <h5 style="text-align: center;">Add Task</h5>
+                    </div>
+                    <div class="form-floating mb-3 tetx-center">
+                        <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="first_name">
+                        <label for="firstname"> Name</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="secondname" [(ngModel)]="last_name">
+                        <label for="secondname">Task title</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="email" [(ngModel)]="email"></textarea>
+                        <!-- <input type="textarea" class="form-control" id="email"  [(ngModel)]="email"> -->
+                        <label for="email">Task Details</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="number" [(ngModel)]="number">
+                        <label for="number">Unique ID</label>
+                      </div>
+                      <button class="btn btn-outline-success" (click)="addStudent()">Submit</button>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-8 mt-3">
+            <h5 class="text-dark" style="text-align: center;">Task List</h5>
+            <div class="card p-3 shadow">
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Task title</th>
+                            <th scope="col">Details</th>
+                            <th scope="col">Unique ID</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let student of  studentlist">
+                            <td scope="row">{{student.first_name}}</td>
+                            <td>{{student.last_name}}</td>
+                            <td>{{student.email}}</td>
+                            <td>{{student.number}}</td>
+                            <td>
+                                <button class="btn btn-outline-danger m-1" (click)="deleteStudent(student)">Delete</button>
+                                <!-- <button class=".btn.btn-outline-primary m-1">Update</button> -->
+                            </td>
+                          </tr>
+                         
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
